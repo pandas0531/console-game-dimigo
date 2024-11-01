@@ -2,12 +2,7 @@
 #include <time.h>
 
 void start(){
-    FILE *fp = fopen("banner.txt", "r");
-    char str[1000];
-    while(str != EOF){
-        fgets(str, 1, fp);
-        printf("%s", str);
-    }
+    printf("=== Temp msg ===\n\n\n");
 }
 
 int main(){
