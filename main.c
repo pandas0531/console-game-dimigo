@@ -7,6 +7,7 @@
 // #define goal 100
 
 void start(){
+    system("cls");
     printf("=== Temp msg ===\n");
 }
 
@@ -26,7 +27,8 @@ int main(){
 
     while(user_point < goal){
         count++;
-        printf("\nYour POINT : %d\nEven is '0', Odd is '1'\n - Input your guess : ", user_point);
+        printf("[STAGE %d] (x%d) - Your Point : %d\n", count, count*count, user_point);
+        printf("Guess random number (odd : 1, even : 0) : ");
         scanf("%d", &user_input);
         
         if(user_input < 0 || user_input > 1){
@@ -35,12 +37,14 @@ int main(){
         }
 
         Sleep(500);
-        printf("\n> Your Guess is %s\n", (user_input==0?"짝수":"홀수"));
+        printf("\n> Your Guess is %s\n", (user_input==0?"EVEN":"ODD"));
         Sleep(1500);
         printf("> hmmm......\n");
         Sleep(1500);
         printf("> Computer's Choice is : %d (%d)\n", setRandom()%2, setRandom());
         Sleep(1000);
+
+        printf("Press 'ENTER' to next stage...\n");
 
     }
 
