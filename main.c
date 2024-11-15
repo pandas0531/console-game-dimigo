@@ -2,18 +2,34 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <windows.h>
 
 // #define goal 100
 
 void start(){
     system("cls");
-    printf("=== Temp msg ===\n");
+    FILE *file = fopen("welcome.txt", "r");
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        printf("%s", line);
+    }
+    printf("\n");
+    fclose(file);
 }
 
-int setRandom(){
-    return rand();
+void correct(){
+    return 0;
 }
+
+void wrong(){
+    FILE *file = fopen("nope.txt", "r");
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        printf("%s", line);
+    }
+    printf("\n");
+    fclose(file);
+}
+
 
 int main(){
 
@@ -26,8 +42,13 @@ int main(){
     int user_point=0;
 
     while(user_point < goal){
+
+        int set_random;
+        set_random = rand();
+
         count++;
-        printf("[STAGE %d] (x%d) - Your Point : %d\n", count, count*count, user_point);
+        printf("[STAGE %d] (point*%d) - Your Point : %d\n", count, count*count, user_point);
+
         printf("Guess random number (odd : 1, even : 0) : ");
         scanf("%d", &user_input);
         
@@ -36,15 +57,26 @@ int main(){
             break;
         }
 
-        Sleep(500);
+        _sleep(500);
         printf("\n> Your Guess is %s\n", (user_input==0?"EVEN":"ODD"));
-        Sleep(1500);
+        _sleep(1500);
         printf("> hmmm......\n");
-        Sleep(1500);
-        printf("> Computer's Choice is : %d (%d)\n", setRandom()%2, setRandom());
-        Sleep(1000);
+        _sleep(1500);
+        printf("> Computer's Choice is : %d (%d)\n", set_random%2, set_random);
+        _sleep(1000);
 
-        printf("Press 'ENTER' to next stage...\n");
+        if(user_input==set_random%2){
+            printf("fd");
+        }
+        else{
+            wrong();
+        }
+
+        printf("\nPress 'ENTER' to next stage...\n");
+        
+        getchar(); 
+        getchar(); 
+        
 
     }
 
