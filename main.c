@@ -51,7 +51,7 @@ int main(){
     srand(time(NULL));
 
     int count=0;
-    //int goal=1000;
+    
     int user_input;
     int user_point=1;
     int weight=1;
@@ -89,7 +89,6 @@ int main(){
             correct();
             user_point *= weight;
             correct_count++;
-            printf("%d\n", user_point);
         }
         else{
             wrong();
