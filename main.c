@@ -14,15 +14,14 @@ void start(){
     }
     printf("\n");
     fclose(file);
-
-    FILE *file2 = fopen("goal.txt", "r");
+    
+    FILE *file2 = fopen("number_list/10000.txt", "r");
     char line_[256];
     while (fgets(line_, sizeof(line_), file2)) {
         printf("%s", line_);
     }
-    printf("\n");
+    printf("\n\n\n");
     fclose(file2);
-
 }
 
 void correct(){
