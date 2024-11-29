@@ -106,7 +106,7 @@ int main(){
         else{
             wrong();
             wrong_count++;
-            user_point /= 2;
+            user_point /= 4;
             if(user_point<=0) user_point = 1;
         }
 

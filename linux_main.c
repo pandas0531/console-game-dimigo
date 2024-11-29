@@ -88,14 +88,9 @@ int main(){
             printf("wrong input\n");
             break;
         }
-
-        usleep(500000);
         printf("\n> Your Guess is %s\n", (user_input == 0 ? "EVEN" : "ODD"));
-        usleep(1500000);
         printf("> hmmm......\n");
-        usleep(1500000);
         printf("> Computer's Choice is : %d (%d)\n", set_random % 2, set_random);
-        usleep(1000000);
 
         if(user_input == set_random % 2){
             correct();
@@ -104,7 +99,7 @@ int main(){
         } else {
             wrong();
             wrong_count++;
-            user_point /= 2;
+            user_point /= 4;
             if(user_point <= 0) user_point = 1;
         }
 
