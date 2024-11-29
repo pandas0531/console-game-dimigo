@@ -3,11 +3,11 @@
 #include <string.h>
 #include <time.h>
 
-#define goal 1000
+#define goal 10000
 
 void start(){
     system("cls");
-    FILE *file = fopen("welcome.txt", "r");
+    FILE *file = fopen("txt_list/welcome.txt", "r");
     char line[256];
     while (fgets(line, sizeof(line), file)) {
         printf("%s", line);
@@ -15,7 +15,7 @@ void start(){
     printf("\n");
     fclose(file);
     
-    FILE *file2 = fopen("goal.txt", "r");
+    FILE *file2 = fopen("txt_list/goal.txt", "r");
     char line_[256];
     while (fgets(line_, sizeof(line_), file2)) {
         printf("%s", line_);
@@ -25,7 +25,7 @@ void start(){
 }
 
 void correct(){
-    FILE *file = fopen("correct.txt", "r");
+    FILE *file = fopen("txt_list/correct.txt", "r");
     char line[256];
     while (fgets(line, sizeof(line), file)) {
         printf("%s", line);
@@ -35,7 +35,7 @@ void correct(){
 }
 
 void wrong(){
-    FILE *file = fopen("nope.txt", "r");
+    FILE *file = fopen("txt_list/nope.txt", "r");
     char line[256];
     while (fgets(line, sizeof(line), file)) {
         printf("%s", line);
@@ -126,7 +126,13 @@ int main(){
         printf("Your point is : \n");
 
         char file_name[200];
-        sprintf(file_name, "number_list/%d.txt", point);
+
+        if(user_point <= 10000){
+            sprintf(file_name, "number_list/%d.txt", user_point);    
+        }
+        else{
+            sprintf(file_name, "number_list/10000+.txt");
+        }        
         FILE *file = fopen(file_name, "r");
         char line[256];
         while (fgets(line, sizeof(line), file)) {
@@ -135,8 +141,7 @@ int main(){
         printf("\n\n\n");
         fclose(file);
 
-
-        FILE *flag = fopen("flag.txt", "r");
+        FILE *flag = fopen("txt_list/flag.txt", "r");
         char flag_context[256];
         while (fgets(flag_context, sizeof(flag_context), flag)) {
             printf("%s", flag_context);
